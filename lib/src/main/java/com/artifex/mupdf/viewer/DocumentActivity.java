@@ -76,6 +76,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Locale;
 
+import io.blushine.android.ui.showcase.MaterialShowcaseView;
 
 
 public class DocumentActivity extends Activity
@@ -238,6 +239,18 @@ public class DocumentActivity extends Activity
 		if (asyncThumb.getStatus() != AsyncTask.Status.RUNNING){
 			asyncThumb.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
 		}
+	}
+
+	private void startShowCase(){
+		new MaterialShowcaseView.Builder(this)
+				.setTitleText("Ekranınızı paylaşın")
+				.setContentText("Ekranı istediğiniz şekilde kırpın farklı platformlarla paylaşın.")
+				.setContentTextColor(Color.parseColor("#e5e5e5"))
+				.setTarget(mShareButton)
+				.setDismissText("Tamam")
+				.setSingleUse("test-crop-share")
+				.setDelay(400)
+				.show();
 	}
 
 	private void saveImage(Bitmap finalBitmap, int index, String ContentId) {
@@ -496,6 +509,7 @@ public class DocumentActivity extends Activity
 			protected void onTapMainDocArea() {
 				if (!mButtonsVisible) {
 					showButtons();
+					startShowCase();
 				} else {
 					if (mTopBarMode == TopBarMode.Main)
 						hideButtons();
@@ -1117,6 +1131,7 @@ public class DocumentActivity extends Activity
 			@Override
 			public void onClick(View v) {
 				showButtons();
+				startShowCase();
 			}
 		});
 

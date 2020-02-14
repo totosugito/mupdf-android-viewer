@@ -16,5 +16,6 @@ allprojects {
 		jcenter()
 		google()
 		maven { url 'http://maven.ghostscript.com/' }
+		maven { url "https://jitpack.io" }
 	}
 }
