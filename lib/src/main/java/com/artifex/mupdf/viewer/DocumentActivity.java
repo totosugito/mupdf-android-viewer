@@ -242,15 +242,17 @@ public class DocumentActivity extends Activity
 	}
 
 	private void startShowCase(){
-		new MaterialShowcaseView.Builder(this)
+		if(mShareButton != null){
+			new MaterialShowcaseView.Builder(this)
+				.setDelay(1000)
 				.setTitleText("Ekranınızı paylaşın")
 				.setContentText("Ekranı istediğiniz şekilde kırpın farklı platformlarla paylaşın.")
 				.setContentTextColor(Color.parseColor("#e5e5e5"))
-				.setTarget(mShareButton)
 				.setDismissText("Tamam")
 				.setSingleUse("test-crop-share")
-				.setDelay(400)
+				.setTarget(mShareButton)
 				.show();
+		}
 	}
 
 	private void saveImage(Bitmap finalBitmap, int index, String ContentId) {

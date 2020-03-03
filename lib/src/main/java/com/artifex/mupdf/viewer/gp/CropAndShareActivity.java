@@ -6,7 +6,6 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import androidx.core.content.FileProvider;
@@ -19,8 +18,6 @@ import com.edmodo.cropper.CropImageView;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-
-import io.blushine.android.ui.showcase.MaterialShowcaseView;
 
 /**
  * Created by p1025 on 04.02.2016.
@@ -106,18 +103,7 @@ public class CropAndShareActivity extends Activity {
                 finish();
             }
         });
-        startShowCase();
     }
 
-    private void startShowCase(){
-        new MaterialShowcaseView.Builder(this)
-                .setTitleText("Paylaşın")
-                .setContentText("Ekranı isediğiniz gibi kırpın ve paylaşın.")
-                .setContentTextColor(Color.parseColor("#e5e5e5"))
-                .setSingleUse("test-share")
-                .setDismissText("Tamam")
-                .setDelay(400)
-                .show();
-    }
 }
 
